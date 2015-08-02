@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface EventTableViewController : UITableViewController <UITableViewDelegate,UITableViewDataSource>
-
+@property BOOL isFetchingData;
+@property UIView *dimViewMask;
+@property UIActivityIndicatorView *indicator;
 @end

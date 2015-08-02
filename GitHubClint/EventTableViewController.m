@@ -14,9 +14,15 @@
 
 @implementation EventTableViewController
 
+- (void)loadView {
+    [super loadView];
+    self.isFetchingData = YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTitle:@"Events"];
+    [self showActivityIndicator];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,48 +52,26 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+#pragma mark customView
+
+- (void) showActivityIndicator {
+    UIView *dimViewMask = [[UIView alloc] initWithFrame:self.view.bounds];
+    [dimViewMask setAlpha:0.4];
+    [dimViewMask setBackgroundColor:[UIColor lightGrayColor]];
+
+    UIActivityIndicatorView *indicatore = [[UIActivityIndicatorView alloc] init];
+    [indicatore setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [indicatore setCenter:dimViewMask.center];
+    [indicatore startAnimating];
+    [dimViewMask addSubview:indicatore];
+
+    [self setDimViewMask:dimViewMask];
+    [self setIndicator:indicatore];
+    [self.view addSubview:dimViewMask];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+-(void) hideActivityIndicator {
+    [self.indicator stopAnimating];
+    [self.dimViewMask removeFromSuperview];
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end
