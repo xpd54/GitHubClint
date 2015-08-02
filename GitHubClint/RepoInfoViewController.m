@@ -10,7 +10,7 @@
 
 @implementation RepoInfoViewController
 - (void)viewDidLoad {
-    [self setTitle:self.repoTitle];
+    [self setTitle:self.ownerLogin];
     [self.view setBackgroundColor:[UIColor lightGrayColor]];
 }
 @end

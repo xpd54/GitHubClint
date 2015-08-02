@@ -23,4 +23,13 @@ typedef void (^FailureBlock)(void);
 
 #define USERNAME @"username"
 #define REPOSITORY_NAME @"repositoryname"
+
+#define OWNER @"owner"
+#define OWNER_HTML_URL @"html_url"
+
+#define STAR_COUNT @"stargazers_count"
+
+#define CONTRIBUTORS_URL @"contributors_url"
+
+
 #endif

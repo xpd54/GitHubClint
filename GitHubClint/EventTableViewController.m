@@ -62,8 +62,22 @@ static NSString *CellIdentifier = @"Cell";
 #pragma mark tableView Delegate
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    RepoInfoViewController *repoInfoViewController = [[RepoInfoViewController alloc] init];
-    [self.navigationController pushViewController:repoInfoViewController animated:YES];
+    NSString *repoUrl = [[self.eventData objectAtIndex:indexPath.row] objectForKey:REPO_URL];
+    
+    [[EventApiCalls sharedInstance] getDataFromUrlString:repoUrl withSuccessBlock:^(id jsonResp) {
+        NSDictionary *repoResponse = [JsonParser getRepoInformation:(NSDictionary *)jsonResp];
+        if ([repoResponse allKeys]) {
+            RepoInfoViewController *repoInfoViewController = [[RepoInfoViewController alloc] init];
+            repoInfoViewController.repoTitle = [repoResponse objectForKey:REPO_NAME];
+            repoInfoViewController.numberOfStar = [repoResponse objectForKey:STAR_COUNT];
+            repoInfoViewController.ownerUrl = [repoResponse objectForKey:OWNER_HTML_URL];
+            repoInfoViewController.contributorsUrl = [repoResponse objectForKey:CONTRIBUTORS_URL];
+            repoInfoViewController.ownerLogin = [repoResponse objectForKey:LOGIN];
+            [self.navigationController pushViewController:repoInfoViewController animated:YES];
+        }
+    } andFailureBlock:^{
+        //handle fail
+    }];
 }
 
 #pragma mark Fetch Api Data

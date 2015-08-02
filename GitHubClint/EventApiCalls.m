@@ -60,7 +60,7 @@
 - (NSData *) makeApiCallForUrlString:(NSString *)url {
     NSError *error;
     NSHTTPURLResponse *response;
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:API_URL_STRING]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:GET];
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     if (responseData &&[response statusCode] == 200) {

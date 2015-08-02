@@ -26,4 +26,28 @@
     }
     return eventData;
 }
+
++ (NSDictionary *) getRepoInformation:(NSDictionary *)repoDict {
+    NSMutableDictionary *repoInfo = [[NSMutableDictionary alloc] init];
+    if ([repoDict objectForKey:REPO_NAME]) {
+        [repoInfo setObject:[repoDict objectForKey:REPO_NAME] forKey:REPO_NAME];
+        if ([[repoDict objectForKey:OWNER] objectForKey:OWNER_HTML_URL]) {
+            [repoInfo setObject:[[repoDict objectForKey:OWNER] objectForKey:OWNER_HTML_URL] forKey:OWNER_HTML_URL];
+        }
+
+        if ([[repoDict objectForKey:OWNER] objectForKey:LOGIN]) {
+            [repoInfo setObject:[[repoDict objectForKey:OWNER] objectForKey:LOGIN] forKey:LOGIN];
+        }
+
+        if ([repoDict objectForKey:CONTRIBUTORS_URL]) {
+            [repoInfo setObject:[repoDict objectForKey:CONTRIBUTORS_URL] forKey:CONTRIBUTORS_URL];
+        }
+
+        if ([repoDict objectForKey:STAR_COUNT]) {
+            [repoInfo setObject:[repoDict objectForKey:STAR_COUNT] forKey:STAR_COUNT];
+        }
+        
+    }
+    return repoInfo;
+}
 @end
