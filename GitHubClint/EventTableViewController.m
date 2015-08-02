@@ -63,7 +63,7 @@ static NSString *CellIdentifier = @"Cell";
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *repoUrl = [[self.eventData objectAtIndex:indexPath.row] objectForKey:REPO_URL];
-    
+    [self showActivityIndicator];
     [[EventApiCalls sharedInstance] getDataFromUrlString:repoUrl withSuccessBlock:^(id jsonResp) {
         NSDictionary *repoResponse = [JsonParser getRepoInformation:(NSDictionary *)jsonResp];
         if ([repoResponse allKeys]) {
@@ -73,6 +73,7 @@ static NSString *CellIdentifier = @"Cell";
             repoInfoViewController.ownerUrl = [repoResponse objectForKey:OWNER_HTML_URL];
             repoInfoViewController.contributorsUrl = [repoResponse objectForKey:CONTRIBUTORS_URL];
             repoInfoViewController.ownerLogin = [repoResponse objectForKey:LOGIN];
+            [self hideActivityIndicator];
             [self.navigationController pushViewController:repoInfoViewController animated:YES];
         }
     } andFailureBlock:^{
@@ -103,6 +104,7 @@ static NSString *CellIdentifier = @"Cell";
 
 - (void) showActivityIndicator {
     UIView *dimViewMask = [[UIView alloc] initWithFrame:self.tableView.bounds];
+    [dimViewMask setUserInteractionEnabled:NO];
     [dimViewMask setAlpha:0.4];
     [dimViewMask setBackgroundColor:[UIColor lightGrayColor]];
 

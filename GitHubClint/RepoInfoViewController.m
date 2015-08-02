@@ -9,8 +9,52 @@
 #import "RepoInfoViewController.h"
 
 @implementation RepoInfoViewController
-- (void)viewDidLoad {
+
+- (void) loadView {
+    [super loadView];
     [self setTitle:self.ownerLogin];
-    [self.view setBackgroundColor:[UIColor lightGrayColor]];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+    CGFloat width = self.view.bounds.size.width;
+    
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 60, width, 50)];
+    [title setBackgroundColor:[UIColor lightGrayColor]];
+    title.text = [NSString stringWithFormat:@"Repo title :-  %@",self.repoTitle];
+    [title setTextAlignment:NSTextAlignmentCenter];
+    [self.view addSubview:title];
+    
+    UILabel *numberOfStar = [[UILabel alloc] initWithFrame:CGRectMake(0, 120, width, 50)];
+    [numberOfStar setBackgroundColor:[UIColor lightGrayColor]];
+    numberOfStar.text = [NSString stringWithFormat:@"Number of ✩ :- %@",self.numberOfStar];
+    [numberOfStar setTextAlignment:NSTextAlignmentCenter];
+    [self.view addSubview:numberOfStar];
+    
+    UIButton *ownerButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 180, width, 50)];
+    [ownerButton addTarget:self action:@selector(showOwnerPage) forControlEvents:UIControlEventTouchDown];
+    [ownerButton setBackgroundColor:[UIColor lightGrayColor]];
+    [ownerButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [ownerButton setTitle:[NSString stringWithFormat:@"Owner Login :- %@",self.ownerLogin] forState:UIControlStateNormal];
+    [ownerButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.view addSubview:ownerButton];
+    
+    UIButton *contributors = [[UIButton alloc] initWithFrame:CGRectMake(0, 240, width, 50)];
+    [contributors addTarget:self action:@selector(showCotributorsPage) forControlEvents:UIControlEventTouchDown];
+    [contributors setBackgroundColor:[UIColor lightGrayColor]];
+    [contributors setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [contributors setTitle:[NSString stringWithFormat:@"Contributors"] forState:UIControlStateNormal];
+    [contributors.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.view addSubview:contributors];
 }
+
+- (void)viewDidLoad {
+    
+}
+
+- (void) showOwnerPage {
+    NSLog(@"test");
+}
+
+- (void) showCotributorsPage {
+    
+}
+
 @end

@@ -10,7 +10,7 @@
 
 @interface RepoInfoViewController : UIViewController
 @property (strong, nonatomic) NSString *repoTitle;
-@property (strong, nonatomic) NSNumber *numberOfStar;
+@property (strong, nonatomic) NSString *numberOfStar;
 @property (strong, nonatomic) NSString *ownerUrl;
 @property (strong, nonatomic) NSString *contributorsUrl;
 @property (strong, nonatomic) NSString *ownerLogin;
