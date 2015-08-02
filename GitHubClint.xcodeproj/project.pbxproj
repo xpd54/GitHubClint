@@ -106,25 +106,13 @@
 		5F8FB8521B6D8C6C005DCEFF /* GitHubClint */ = {
 			isa = PBXGroup;
 			children = (
+				5F8FB8A11B6EBFAC005DCEFF /* AppDelegate */,
+				5F8FB8A01B6EBF99005DCEFF /* View */,
+				5F8FB89F1B6EBF83005DCEFF /* EventApi */,
+				5F8FB89E1B6EBF6B005DCEFF /* JsonParser */,
 				5F8FB8871B6DB1ED005DCEFF /* InternetConnection */,
 				5F8FB8861B6DB1A2005DCEFF /* External */,
-				5F8FB8571B6D8C6C005DCEFF /* AppDelegate.h */,
-				5F8FB8581B6D8C6C005DCEFF /* AppDelegate.m */,
-				5F8FB85A1B6D8C6C005DCEFF /* ViewController.h */,
-				5F8FB85B1B6D8C6C005DCEFF /* ViewController.m */,
-				5F8FB8951B6E2B61005DCEFF /* RepoInfoViewController.h */,
-				5F8FB8961B6E2B61005DCEFF /* RepoInfoViewController.m */,
-				5F8FB89B1B6EB563005DCEFF /* ContributorsTableViewController.h */,
-				5F8FB89C1B6EB563005DCEFF /* ContributorsTableViewController.m */,
-				5F8FB8791B6D9886005DCEFF /* EventTableViewController.h */,
-				5F8FB87A1B6D9886005DCEFF /* EventTableViewController.m */,
-				5F8FB88F1B6E0F5F005DCEFF /* EventTableViewCell.h */,
-				5F8FB8901B6E0F5F005DCEFF /* EventTableViewCell.m */,
-				5F8FB8801B6DA2F2005DCEFF /* EventApiCalls.h */,
-				5F8FB8811B6DA2F2005DCEFF /* EventApiCalls.m */,
 				5F8FB88B1B6DE003005DCEFF /* Constants.h */,
-				5F8FB88C1B6DF8B8005DCEFF /* JsonParser.h */,
-				5F8FB88D1B6DF8B8005DCEFF /* JsonParser.m */,
 				5F8FB85D1B6D8C6C005DCEFF /* Main.storyboard */,
 				5F8FB8601B6D8C6C005DCEFF /* Images.xcassets */,
 				5F8FB8621B6D8C6C005DCEFF /* LaunchScreen.xib */,
@@ -175,6 +163,50 @@
 				5F8FB8891B6DB211005DCEFF /* InternetConnection.m */,
 			);
 			name = InternetConnection;
+			sourceTree = "<group>";
+		};
+		5F8FB89E1B6EBF6B005DCEFF /* JsonParser */ = {
+			isa = PBXGroup;
+			children = (
+				5F8FB88C1B6DF8B8005DCEFF /* JsonParser.h */,
+				5F8FB88D1B6DF8B8005DCEFF /* JsonParser.m */,
+			);
+			name = JsonParser;
+			sourceTree = "<group>";
+		};
+		5F8FB89F1B6EBF83005DCEFF /* EventApi */ = {
+			isa = PBXGroup;
+			children = (
+				5F8FB8801B6DA2F2005DCEFF /* EventApiCalls.h */,
+				5F8FB8811B6DA2F2005DCEFF /* EventApiCalls.m */,
+			);
+			name = EventApi;
+			sourceTree = "<group>";
+		};
+		5F8FB8A01B6EBF99005DCEFF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5F8FB85A1B6D8C6C005DCEFF /* ViewController.h */,
+				5F8FB85B1B6D8C6C005DCEFF /* ViewController.m */,
+				5F8FB8951B6E2B61005DCEFF /* RepoInfoViewController.h */,
+				5F8FB8961B6E2B61005DCEFF /* RepoInfoViewController.m */,
+				5F8FB89B1B6EB563005DCEFF /* ContributorsTableViewController.h */,
+				5F8FB89C1B6EB563005DCEFF /* ContributorsTableViewController.m */,
+				5F8FB8791B6D9886005DCEFF /* EventTableViewController.h */,
+				5F8FB87A1B6D9886005DCEFF /* EventTableViewController.m */,
+				5F8FB88F1B6E0F5F005DCEFF /* EventTableViewCell.h */,
+				5F8FB8901B6E0F5F005DCEFF /* EventTableViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		5F8FB8A11B6EBFAC005DCEFF /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				5F8FB8571B6D8C6C005DCEFF /* AppDelegate.h */,
+				5F8FB8581B6D8C6C005DCEFF /* AppDelegate.m */,
+			);
+			name = AppDelegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -71,11 +71,20 @@ static NSString *CellIdentifier = @"Cell";
             });
         }
     } andFailureBlock:^{
-        //
+        [self showAlert];
+        [self hideActivityIndicator];
     }];
 }
 
 #pragma mark customView
+
+- (void) showAlert {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSString *popupMessage = [[NSString alloc] initWithFormat:@"Please check your network connection or try other repo"];
+        UIAlertView *databaseMissing = [[UIAlertView alloc] initWithTitle:@"No Contributors Found" message:popupMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [databaseMissing show];
+    });
+}
 
 - (void) showActivityIndicator {
     UIView *dimViewMask = [[UIView alloc] initWithFrame:self.tableView.bounds];

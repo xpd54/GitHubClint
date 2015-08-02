@@ -77,7 +77,8 @@ static NSString *CellIdentifier = @"Cell";
             [self.navigationController pushViewController:repoInfoViewController animated:YES];
         }
     } andFailureBlock:^{
-        //handle fail
+        [self showAlert];
+        [self hideActivityIndicator];
     }];
 }
 
@@ -95,12 +96,21 @@ static NSString *CellIdentifier = @"Cell";
             });
         }
     } andFailureBlock:^{
-        NSLog(@"fiiuuhh");
+        [self showAlert];
+        [self hideActivityIndicator];
     }];
 }
 
 
 #pragma mark customView
+
+- (void) showAlert {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSString *popupMessage = [[NSString alloc] initWithFormat:@"Please check your network connection or try Again"];
+        UIAlertView *databaseMissing = [[UIAlertView alloc] initWithTitle:@"No Data Found" message:popupMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [databaseMissing show];
+    });
+}
 
 - (void) showActivityIndicator {
     UIView *dimViewMask = [[UIView alloc] initWithFrame:self.tableView.bounds];
