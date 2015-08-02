@@ -7,7 +7,9 @@
 //
 
 #import "RepoInfoViewController.h"
-
+#import "EventApiCalls.h"
+#import "JsonParser.h"
+#import "ContributorsTableViewController.h"
 @implementation RepoInfoViewController
 
 - (void) loadView {
@@ -56,7 +58,9 @@
 }
 
 - (void) showCotributorsPage {
-    
+    ContributorsTableViewController *contributorsTableView = [[ContributorsTableViewController alloc] init];
+    contributorsTableView.contributorsUrl = self.contributorsUrl;
+    [self.navigationController pushViewController:contributorsTableView animated:YES];
 }
 
 @end
