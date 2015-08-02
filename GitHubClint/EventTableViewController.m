@@ -8,12 +8,14 @@
 
 #import "EventTableViewController.h"
 #import "JsonParser.h"
+#import "EventTableViewCell.h"
 
 @interface EventTableViewController ()
 
 @end
 
 @implementation EventTableViewController
+static NSString *CellIdentifier = @"Cell";
 
 - (void)loadView {
     [super loadView];
@@ -37,21 +39,22 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 0;
+    return [self.eventData count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    EventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        cell = [[EventTableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
-    
+    cell.repositoryName = [[self.eventData objectAtIndex:indexPath.row] objectForKey:REPOSITORY_NAME];
+    cell.url = [[self.eventData objectAtIndex:indexPath.row] objectForKey:REPO_URL];
+    cell.userName = [[self.eventData objectAtIndex:indexPath.row] objectForKey:USERNAME];
     return cell;
 }
 
@@ -69,6 +72,10 @@
         NSArray *eventData = [JsonParser getListOfEvents:eventResponse];
         if ([eventData count]) {
             self.eventData = eventData;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+                [self hideActivityIndicator];
+            });
         }
     } andFailureBlock:^{
         NSLog(@"fiiuuhh");
@@ -79,7 +86,7 @@
 #pragma mark customView
 
 - (void) showActivityIndicator {
-    UIView *dimViewMask = [[UIView alloc] initWithFrame:self.view.bounds];
+    UIView *dimViewMask = [[UIView alloc] initWithFrame:self.tableView.bounds];
     [dimViewMask setAlpha:0.4];
     [dimViewMask setBackgroundColor:[UIColor lightGrayColor]];
 

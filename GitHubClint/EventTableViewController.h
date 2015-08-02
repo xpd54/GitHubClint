@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "EventApiCalls.h"
-@interface EventTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, EvnetAPIDelegate>
+@interface EventTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, EventAPIDelegate>
 @property (strong, nonatomic) NSArray *eventData;
 @property BOOL isFetchingData;
 @property UIView *dimViewMask;

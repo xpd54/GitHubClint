@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "Constants.h"
 
-@protocol EvnetAPIDelegate <NSObject>
+@protocol EventAPIDelegate <NSObject>
 - (void) fetchEventSuccess:(NSArray *)eventArray;
 @end
 @interface EventApiCalls : NSObject
-@property (weak, nonatomic) id <EvnetAPIDelegate> eventDelegate;
+@property (weak, nonatomic) id <EventAPIDelegate> eventDelegate;
 
 - (id) init;
 + (EventApiCalls *) sharedInstance;

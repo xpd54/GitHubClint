@@ -19,6 +19,7 @@
 		5F8FB8851B6DB19C005DCEFF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8FB8841B6DB19C005DCEFF /* Reachability.m */; };
 		5F8FB88A1B6DB211005DCEFF /* InternetConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8FB8891B6DB211005DCEFF /* InternetConnection.m */; };
 		5F8FB88E1B6DF8B8005DCEFF /* JsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8FB88D1B6DF8B8005DCEFF /* JsonParser.m */; };
+		5F8FB8911B6E0F5F005DCEFF /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8FB8901B6E0F5F005DCEFF /* EventTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		5F8FB88B1B6DE003005DCEFF /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		5F8FB88C1B6DF8B8005DCEFF /* JsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonParser.h; sourceTree = "<group>"; };
 		5F8FB88D1B6DF8B8005DCEFF /* JsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonParser.m; sourceTree = "<group>"; };
+		5F8FB88F1B6E0F5F005DCEFF /* EventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableViewCell.h; sourceTree = "<group>"; };
+		5F8FB8901B6E0F5F005DCEFF /* EventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				5F8FB85B1B6D8C6C005DCEFF /* ViewController.m */,
 				5F8FB8791B6D9886005DCEFF /* EventTableViewController.h */,
 				5F8FB87A1B6D9886005DCEFF /* EventTableViewController.m */,
+				5F8FB88F1B6E0F5F005DCEFF /* EventTableViewCell.h */,
+				5F8FB8901B6E0F5F005DCEFF /* EventTableViewCell.m */,
 				5F8FB8801B6DA2F2005DCEFF /* EventApiCalls.h */,
 				5F8FB8811B6DA2F2005DCEFF /* EventApiCalls.m */,
 				5F8FB88B1B6DE003005DCEFF /* Constants.h */,
@@ -264,6 +269,7 @@
 			files = (
 				5F8FB88A1B6DB211005DCEFF /* InternetConnection.m in Sources */,
 				5F8FB85C1B6D8C6C005DCEFF /* ViewController.m in Sources */,
+				5F8FB8911B6E0F5F005DCEFF /* EventTableViewCell.m in Sources */,
 				5F8FB8591B6D8C6C005DCEFF /* AppDelegate.m in Sources */,
 				5F8FB87B1B6D9886005DCEFF /* EventTableViewController.m in Sources */,
 				5F8FB8561B6D8C6C005DCEFF /* main.m in Sources */,
