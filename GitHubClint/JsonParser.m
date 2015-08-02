@@ -50,4 +50,17 @@
     }
     return repoInfo;
 }
+
++ (NSArray *) getContributors:(NSArray *)contributors {
+    NSMutableArray *contributorsData = [[NSMutableArray alloc] init];
+    for (NSDictionary *contributor in contributors) {
+        if ([contributor objectForKey:LOGIN]) {
+            NSMutableDictionary *contributorInfo = [[NSMutableDictionary alloc] init];
+            [contributorInfo setObject:[contributor objectForKey:LOGIN] forKey:LOGIN];
+            [contributorInfo setObject:[contributor objectForKey:OWNER_HTML_URL] forKey:OWNER_HTML_URL];
+            [contributorsData addObject:contributorInfo];
+        }
+    }
+    return contributorsData;
+}
 @end

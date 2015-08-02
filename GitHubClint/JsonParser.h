@@ -11,4 +11,5 @@
 @interface JsonParser : NSObject
 + (NSArray *) getListOfEvents:(NSArray *)eventArray;
 + (NSDictionary *) getRepoInformation:(NSDictionary *)repoDict;
++ (NSArray *) getContributors:(NSArray *)contributors;
 @end
