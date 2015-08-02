@@ -7,6 +7,7 @@
 //
 
 #import "EventTableViewController.h"
+#import "JsonParser.h"
 
 @interface EventTableViewController ()
 
@@ -24,6 +25,7 @@
     [super viewDidLoad];
     [self setTitle:@"Events"];
     [self showActivityIndicator];
+    [self fetchEventApiData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,6 +61,21 @@
     NSLog(@"%@",eventArray);
 }
 
+#pragma mark Fetch Api Data
+
+- (void) fetchEventApiData {
+    [[EventApiCalls sharedInstance] getDataFromUrlString:API_URL_STRING withSuccessBlock:^(id jsonResp) {
+        NSArray *eventResponse = (NSArray *)jsonResp;
+        NSArray *eventData = [JsonParser getListOfEvents:eventResponse];
+        if ([eventData count]) {
+            self.eventData = eventData;
+        }
+    } andFailureBlock:^{
+        NSLog(@"fiiuuhh");
+    }];
+}
+
+
 #pragma mark customView
 
 - (void) showActivityIndicator {
@@ -80,5 +97,6 @@
 -(void) hideActivityIndicator {
     [self.indicator stopAnimating];
     [self.dimViewMask removeFromSuperview];
+    [self setIsFetchingData:NO];
 }
 @end

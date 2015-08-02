@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EventApiCalls.h"
 @interface EventTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, EvnetAPIDelegate>
+@property (strong, nonatomic) NSArray *eventData;
 @property BOOL isFetchingData;
 @property UIView *dimViewMask;
 @property UIActivityIndicatorView *indicator;
