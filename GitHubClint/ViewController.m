@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "EventTableViewController.h"
 @interface ViewController ()
 
 @end
@@ -25,6 +25,7 @@
     [gitHub setBackgroundColor:[UIColor darkGrayColor]];
     [gitHub setTitle:@"Clint" forState:UIControlStateNormal];
     [gitHub setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+    [gitHub addTarget:self action:@selector(showEventTable) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:gitHub];
 }
 
@@ -32,6 +33,11 @@
     [super viewDidLoad];
     [self setTitle:@"GitHub"];
     [self.view setBackgroundColor:[UIColor lightGrayColor]];
+}
+
+- (void) showEventTable {
+    EventTableViewController *eventTableViewController = [[EventTableViewController alloc] init];
+    [self.navigationController pushViewController:eventTableViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
