@@ -10,6 +10,7 @@
 #import "JsonParser.h"
 #import "EventTableViewCell.h"
 #import "EventApiCalls.h"
+#import "RepoInfoViewController.h"
 
 @interface EventTableViewController ()
 
@@ -56,6 +57,13 @@ static NSString *CellIdentifier = @"Cell";
     cell.url = [[self.eventData objectAtIndex:indexPath.row] objectForKey:REPO_URL];
     cell.userName = [[self.eventData objectAtIndex:indexPath.row] objectForKey:USERNAME];
     return cell;
+}
+
+#pragma mark tableView Delegate
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    RepoInfoViewController *repoInfoViewController = [[RepoInfoViewController alloc] init];
+    [self.navigationController pushViewController:repoInfoViewController animated:YES];
 }
 
 #pragma mark Fetch Api Data
