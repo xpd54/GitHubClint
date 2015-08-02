@@ -9,6 +9,7 @@
 #import "EventTableViewController.h"
 #import "JsonParser.h"
 #import "EventTableViewCell.h"
+#import "EventApiCalls.h"
 
 @interface EventTableViewController ()
 
@@ -19,7 +20,6 @@ static NSString *CellIdentifier = @"Cell";
 
 - (void)loadView {
     [super loadView];
-    [[EventApiCalls sharedInstance] setEventDelegate:self];
     [self setIsFetchingData:YES];
 }
 
@@ -56,12 +56,6 @@ static NSString *CellIdentifier = @"Cell";
     cell.url = [[self.eventData objectAtIndex:indexPath.row] objectForKey:REPO_URL];
     cell.userName = [[self.eventData objectAtIndex:indexPath.row] objectForKey:USERNAME];
     return cell;
-}
-
-#pragma mark Event Delegate method
-
-- (void) fetchEventSuccess:(NSArray *)eventArray {
-    NSLog(@"%@",eventArray);
 }
 
 #pragma mark Fetch Api Data
