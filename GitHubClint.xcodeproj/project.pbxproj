@@ -15,6 +15,7 @@
 		5F8FB8641B6D8C6C005DCEFF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F8FB8621B6D8C6C005DCEFF /* LaunchScreen.xib */; };
 		5F8FB8701B6D8C6C005DCEFF /* GitHubClintTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8FB86F1B6D8C6C005DCEFF /* GitHubClintTests.m */; };
 		5F8FB87B1B6D9886005DCEFF /* EventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8FB87A1B6D9886005DCEFF /* EventTableViewController.m */; };
+		5F8FB8821B6DA2F2005DCEFF /* EventApiCalls.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8FB8811B6DA2F2005DCEFF /* EventApiCalls.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		5F8FB86F1B6D8C6C005DCEFF /* GitHubClintTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GitHubClintTests.m; sourceTree = "<group>"; };
 		5F8FB8791B6D9886005DCEFF /* EventTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableViewController.h; sourceTree = "<group>"; };
 		5F8FB87A1B6D9886005DCEFF /* EventTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableViewController.m; sourceTree = "<group>"; };
+		5F8FB8801B6DA2F2005DCEFF /* EventApiCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventApiCalls.h; sourceTree = "<group>"; };
+		5F8FB8811B6DA2F2005DCEFF /* EventApiCalls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventApiCalls.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 				5F8FB85B1B6D8C6C005DCEFF /* ViewController.m */,
 				5F8FB8791B6D9886005DCEFF /* EventTableViewController.h */,
 				5F8FB87A1B6D9886005DCEFF /* EventTableViewController.m */,
+				5F8FB8801B6DA2F2005DCEFF /* EventApiCalls.h */,
+				5F8FB8811B6DA2F2005DCEFF /* EventApiCalls.m */,
 				5F8FB85D1B6D8C6C005DCEFF /* Main.storyboard */,
 				5F8FB8601B6D8C6C005DCEFF /* Images.xcassets */,
 				5F8FB8621B6D8C6C005DCEFF /* LaunchScreen.xib */,
@@ -228,6 +233,7 @@
 				5F8FB8591B6D8C6C005DCEFF /* AppDelegate.m in Sources */,
 				5F8FB87B1B6D9886005DCEFF /* EventTableViewController.m in Sources */,
 				5F8FB8561B6D8C6C005DCEFF /* main.m in Sources */,
+				5F8FB8821B6DA2F2005DCEFF /* EventApiCalls.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

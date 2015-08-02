@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface EventTableViewController : UITableViewController <UITableViewDelegate,UITableViewDataSource>
+#import "EventApiCalls.h"
+@interface EventTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, EvnetAPIDelegate>
 @property BOOL isFetchingData;
 @property UIView *dimViewMask;
 @property UIActivityIndicatorView *indicator;

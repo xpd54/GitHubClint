@@ -16,7 +16,8 @@
 
 - (void)loadView {
     [super loadView];
-    self.isFetchingData = YES;
+    [[EventApiCalls sharedInstance] setEventDelegate:self];
+    [self setIsFetchingData:YES];
 }
 
 - (void)viewDidLoad {
@@ -50,6 +51,12 @@
     }
     
     return cell;
+}
+
+#pragma mark Event Delegate method
+
+- (void) fetchEventSuccess:(NSArray *)eventArray {
+    NSLog(@"%@",eventArray);
 }
 
 #pragma mark customView
