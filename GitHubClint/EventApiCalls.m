@@ -7,6 +7,7 @@
 //
 
 #import "EventApiCalls.h"
+#import "InternetConnection.h"
 
 @implementation EventApiCalls
 
@@ -28,8 +29,46 @@
     return instance;
 }
 
-- (void) fetchEvent {
-    [self.eventDelegate fetchEventSuccess:@[@"test"]];
+- (void) getDataFromUrlString:(NSString *)url
+             withSuccessBlock:(SuccessBlock)success
+              andFailureBlock:(FailureBlock)failure {
+
+    dispatch_queue_t fetchEvent = dispatch_queue_create(DISPATCH_QUEUE_FETCH_EVENT, nil);
+    dispatch_async(fetchEvent, ^{
+        if ([InternetConnection isInternetConnectionAvailable]) {
+            NSData *responseData = [self makeApiCallForUrlString:url];
+            if (responseData) {
+                NSArray *eventArray = [NSJSONSerialization JSONObjectWithData:responseData
+                                                                      options:NSJSONReadingMutableContainers
+                                                                        error:nil];
+                if (success) {
+                    success(eventArray);
+                }
+            } else {
+                if (failure) {
+                    failure();
+                }
+            }
+        } else {
+            if (failure) {
+                failure();
+            }
+        }
+    });
+}
+
+- (NSData *) makeApiCallForUrlString:(NSString *)url {
+    NSError *error;
+    NSHTTPURLResponse *response;
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:API_URL_STRING]];
+    [request setHTTPMethod:GET];
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if (responseData &&[response statusCode] == 200) {
+        NSLog(@"Fetch event success");
+    } else {
+        NSLog(@"Fetch event fail with status code %ld",[response statusCode]);
+    }
+    return responseData;
 }
 
 @end

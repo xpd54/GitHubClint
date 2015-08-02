@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Constants.h"
 
 @protocol EvnetAPIDelegate <NSObject>
 - (void) fetchEventSuccess:(NSArray *)eventArray;
@@ -16,5 +17,7 @@
 
 - (id) init;
 + (EventApiCalls *) sharedInstance;
-- (void) fetchEvent;
+- (void) getDataFromUrlString:(NSString *)url
+             withSuccessBlock:(SuccessBlock)success
+              andFailureBlock:(FailureBlock)failure;
 @end
