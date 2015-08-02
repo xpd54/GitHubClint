@@ -50,7 +50,9 @@
 }
 
 - (void) showOwnerPage {
-    NSLog(@"test");
+    if (self.ownerUrl) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.ownerUrl]];
+    }
 }
 
 - (void) showCotributorsPage {
