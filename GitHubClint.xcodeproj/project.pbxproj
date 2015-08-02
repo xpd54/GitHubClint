@@ -16,6 +16,8 @@
 		5F8FB8701B6D8C6C005DCEFF /* GitHubClintTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8FB86F1B6D8C6C005DCEFF /* GitHubClintTests.m */; };
 		5F8FB87B1B6D9886005DCEFF /* EventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8FB87A1B6D9886005DCEFF /* EventTableViewController.m */; };
 		5F8FB8821B6DA2F2005DCEFF /* EventApiCalls.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8FB8811B6DA2F2005DCEFF /* EventApiCalls.m */; };
+		5F8FB8851B6DB19C005DCEFF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8FB8841B6DB19C005DCEFF /* Reachability.m */; };
+		5F8FB88A1B6DB211005DCEFF /* InternetConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8FB8891B6DB211005DCEFF /* InternetConnection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,10 @@
 		5F8FB87A1B6D9886005DCEFF /* EventTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableViewController.m; sourceTree = "<group>"; };
 		5F8FB8801B6DA2F2005DCEFF /* EventApiCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventApiCalls.h; sourceTree = "<group>"; };
 		5F8FB8811B6DA2F2005DCEFF /* EventApiCalls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventApiCalls.m; sourceTree = "<group>"; };
+		5F8FB8831B6DB19C005DCEFF /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		5F8FB8841B6DB19C005DCEFF /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		5F8FB8881B6DB211005DCEFF /* InternetConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InternetConnection.h; sourceTree = "<group>"; };
+		5F8FB8891B6DB211005DCEFF /* InternetConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InternetConnection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,8 @@
 		5F8FB8521B6D8C6C005DCEFF /* GitHubClint */ = {
 			isa = PBXGroup;
 			children = (
+				5F8FB8871B6DB1ED005DCEFF /* InternetConnection */,
+				5F8FB8861B6DB1A2005DCEFF /* External */,
 				5F8FB8571B6D8C6C005DCEFF /* AppDelegate.h */,
 				5F8FB8581B6D8C6C005DCEFF /* AppDelegate.m */,
 				5F8FB85A1B6D8C6C005DCEFF /* ViewController.h */,
@@ -127,6 +135,24 @@
 				5F8FB86E1B6D8C6C005DCEFF /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5F8FB8861B6DB1A2005DCEFF /* External */ = {
+			isa = PBXGroup;
+			children = (
+				5F8FB8831B6DB19C005DCEFF /* Reachability.h */,
+				5F8FB8841B6DB19C005DCEFF /* Reachability.m */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		5F8FB8871B6DB1ED005DCEFF /* InternetConnection */ = {
+			isa = PBXGroup;
+			children = (
+				5F8FB8881B6DB211005DCEFF /* InternetConnection.h */,
+				5F8FB8891B6DB211005DCEFF /* InternetConnection.m */,
+			);
+			name = InternetConnection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,10 +255,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F8FB88A1B6DB211005DCEFF /* InternetConnection.m in Sources */,
 				5F8FB85C1B6D8C6C005DCEFF /* ViewController.m in Sources */,
 				5F8FB8591B6D8C6C005DCEFF /* AppDelegate.m in Sources */,
 				5F8FB87B1B6D9886005DCEFF /* EventTableViewController.m in Sources */,
 				5F8FB8561B6D8C6C005DCEFF /* main.m in Sources */,
+				5F8FB8851B6DB19C005DCEFF /* Reachability.m in Sources */,
 				5F8FB8821B6DA2F2005DCEFF /* EventApiCalls.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
